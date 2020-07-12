@@ -1,9 +1,11 @@
 from django.contrib import admin
-#from awwwards.views import *
-from .models import Profile
+from .models import Profile, Project, Rate, Comment
 
 
 # Register your models here.
 admin.site.register(Profile)
+admin.site.register(Project)
+admin.site.register(Rate)
+admin.site.register(Comment)
 
 
