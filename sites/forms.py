@@ -7,13 +7,16 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
         exclude = ['user', 'pub_date', 'profile']
+        fields = ('project_name', 'details', 'project_url', 'screenshot')
 
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ['user','rate']
+        fields = ['profile_picture', 'bio', 'contact_info']
 
 class RateForm(forms.ModelForm):
     class Meta:
         model =Rate
         exclude= ['user','project']
+        fields = ['design', 'usability', 'creativity', 'content']
