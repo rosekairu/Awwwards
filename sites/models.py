@@ -6,7 +6,7 @@ import datetime as dt
 # Create your models here.
 class Profile(models.Model):
     profile_picture = models.ImageField(upload_to = 'images/',blank=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user = models.OneToOneField(User,default="",on_delete=models.CASCADE, primary_key=True)    
     bio = models.TextField(default="", max_length = 50,null = True)
     contact_info = models.CharField(max_length=200, blank=True)
     join_date = models.DateTimeField(auto_now_add=True, null=True)
@@ -54,10 +54,14 @@ class Project(models.Model):
     screenshot = models.ImageField(upload_to = 'images/')
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     project_name = models.CharField(max_length =10)
-    project_url = models.CharField(max_length =50)
-    location = models.CharField(max_length =10)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True,related_name='project')
     pub_date = models.DateTimeField(auto_now_add=True, null=True)
+    details = models.TextField()
+    project_url = models.CharField(max_length =50)
+    user_project_id = models.IntegerField(default=0)
+    design = models.IntegerField(choices=list(zip(range(0, 11), range(0, 11))), default=0)
+    usability = models.IntegerField(choices=list(zip(range(0, 11), range(0, 11))), default=0)
+    creativity = models.IntegerField(choices=list(zip(range(0, 11), range(0, 11))), default=0)
+    content = models.IntegerField(choices=list(zip(range(0, 11), range(0, 11))), default=0)
     vote_submissions = models.IntegerField(default=0)
 
 
@@ -79,8 +83,8 @@ class Project(models.Model):
 
     @classmethod
     def search_by_profile(cls,search_term):
-        projo = cls.objects.filter(profile__name__icontains=search_term)
-        return projo
+        proj = cls.objects.filter(profile__name__icontains=search_term)
+        return proj
 
     @classmethod
     def get_profile_projects(cls, profile):
