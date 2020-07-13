@@ -112,7 +112,7 @@ def upload_project(request):
         uploadform = ProjectForm(request.POST, request.FILES)
         if uploadform.is_valid():
             upload = uploadform.save(commit=False)
-            upload.profile = request.user
+            upload.profile = request.user.profile
             upload.save()
             return redirect('sites:home')
     else:
