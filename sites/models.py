@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator
+from tinymce.models import HTMLField
 import datetime as dt
 
 
@@ -10,7 +12,7 @@ import datetime as dt
 class Profile(models.Model):
     profile_picture = models.ImageField(upload_to = 'images/',blank=True)
     user = models.OneToOneField(User,default="",on_delete=models.CASCADE, primary_key=True)    
-    bio = models.TextField(default="", max_length = 50,null = True)
+    bio = HTMLField(max_length=500,default='A good day to...')
     contact_info = models.CharField(max_length=200, blank=True)
     date_joined = models.DateTimeField(auto_now_add=True, null=True)
     profile_Id = models.IntegerField(default=0)
@@ -61,8 +63,13 @@ class Project(models.Model):
     details = models.TextField()
     project_url = models.CharField(max_length =50)
     user_project_id = models.IntegerField(default=0)
+    design=models.IntegerField(default=0)
+    usability=models.IntegerField(default=0)
+    content=models.IntegerField(default=0)
     
 
+    def __str__(self):
+        return self.project_name
 
     class Meta:
         ordering = ['-pk']
@@ -101,10 +108,9 @@ class Project(models.Model):
 class Rate(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null = True)
     project = models.ForeignKey(Project,on_delete=models.CASCADE,related_name='rate',null=True)
-    design = models.CharField(max_length=30)
-    usability = models.CharField(max_length=8, default=0)
-    content = models.CharField(max_length=8)
-    average = models.FloatField(max_length=8)
+    design = models.PositiveIntegerField(default=0,validators=[MaxValueValidator(10)])
+    usability = models.PositiveIntegerField(default=0,validators=[MaxValueValidator(10)])
+    content = models.PositiveIntegerField(default=0,validators=[MaxValueValidator(10)]) 
     
 
     def __str__(self):

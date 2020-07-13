@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'sites',
     'bootstrap4',
     'cloudinary',
+    'rest_framework',
     'rest_framework.authtoken',
     'tinymce',
 ]

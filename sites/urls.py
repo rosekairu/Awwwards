@@ -13,12 +13,12 @@ urlpatterns=[
     path('profile/<username>/', views.profile, name='profile'),
     path('upload/', views.upload_project, name='upload_project'),
     path('edit', views.edit, name='edit-profile'),
-    #path('rate/',views.rate_project, name='rate'),
+    #path('rate/<int:pk>',views.rate_project, name='rate'),
     url(r'^rate/(?P<project_id>\d+)',views.rate_project, name='rate'),
     url(r'^vote/(?P<project_id>\d+)',views.vote, name='vote'),
-    #path('vote/',views.vote, name='vote'),
-    path('api/profile/', views.ProfileList.as_view()),
-    path('api/project/', views.ProjectList.as_view()),
+    #path('vote/',views.vote, name='vote'), 
+    path('api/profile/', views.ProfileList.as_view(), name='profile_list'),
+    path('api/project/', views.ProjectList.as_view(), name='project_list'),
     url(r'^password/$', views.change_password, name='change_password'),
     
 ]

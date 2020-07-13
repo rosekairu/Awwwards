@@ -75,9 +75,20 @@
                     </form>
 
                 </div>
-                <div class="col-md-4" id="logo">
+                <div class="col-md-3" id="logo">
                     <a href="{% url 'sites:home' %}"><strong>awwwards.</strong></a>
                 </div>
+
+                <div class="dropdown dropleft">
+                    <!--Trigger-->
+                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">APIS</button>
+                    <!--Menu-->
+                    <div class="dropdown-menu dropdown-info">
+                        <a class="dropdown-item" href="{% url 'sites:profile_list' %}">Profiles</a>
+                        <a class="dropdown-item" href="{% url 'sites:project_list' %}">Projects</a>
+                    </div>
+                </div>
+                &nbsp;
                 <div class="col-md-2" id="drop">
                     {% if user.is_authenticated %}
                     <ul class="" style="position:absolute;">
