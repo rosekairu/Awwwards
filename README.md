@@ -1,11 +1,12 @@
 ## Awwwards
 
+[![codebeat badge](https://codebeat.co/badges/a15c910b-012e-4f1b-b404-93db3562013c)](https://codebeat.co/projects/github-com-rosekairu-awwwards-master)
 
 ### Author: [rosekairu](https://github.com/rosekairu)
 
 ### Description
  
-
+A django application that allows a user to post a project he/she has created and get it reviewed by his/her peers.
 
 ## Live Link
 
