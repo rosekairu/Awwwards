@@ -13,10 +13,10 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ['user','rate']
-        fields = ['profile_picture', 'bio', 'contact_info']
+        
 
 class RateForm(forms.ModelForm):
     class Meta:
         model =Rate
         exclude= ['user','project']
-        fields = ['design', 'usability', 'content']
+        

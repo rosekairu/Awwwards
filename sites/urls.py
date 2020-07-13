@@ -18,7 +18,8 @@ urlpatterns=[
     url(r'^vote/(?P<project_id>\d+)',views.vote, name='vote'),
     #path('vote/',views.vote, name='vote'),
     path('api/profile/', views.ProfileList.as_view()),
-    path('api/project/', views.ProjectList.as_view())
+    path('api/project/', views.ProjectList.as_view()),
+    url(r'^password/$', views.change_password, name='change_password'),
     
 ]
 if settings.DEBUG:

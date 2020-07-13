@@ -29,7 +29,8 @@ urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(extra_context={'next': '/'}), name='django_registration_login'),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('logout/', auth_views.LogoutView.as_view()),  
+    path('logout/', auth_views.LogoutView.as_view()),
+    #path('accounts/password/change/ [name='password_change']'),
     path('', include(('sites.urls','sites'))),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
 ]
