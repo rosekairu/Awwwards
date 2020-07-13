@@ -49,7 +49,7 @@ def search_results(request):
 @login_required(login_url='/accounts/login/')
 def profile(request, username):
     
-    Proj = Project.objects.all()
+    app = Project.objects.all()
     profile = User.objects.get(username=username)
     # print(profile.id)
 
@@ -58,7 +58,7 @@ def profile(request, username):
     except:
         profile_details = Profile.filter_by_id(profile.id)
 
-    Proj = Project.get_profile_projects(profile.id)
+    app = Project.get_profile_projects(profile.id)
     title = f'@{profile.username} awwward projects and screenshots'
 
     return render(request, 'profile.html', locals())
