@@ -148,7 +148,7 @@ def rate_project(request,project_id):
             rating.project = project
             rating.user = request.user
             rating.save()
-            return redirect('vote',project_id)
+            return redirect('sites:vote',project_id)
     else:
         rateform = RateForm()
     return render(request,'rate.html',locals())
