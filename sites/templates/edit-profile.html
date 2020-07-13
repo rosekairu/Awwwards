@@ -6,9 +6,12 @@
             {% if profile.profile.profile_picture %}
             <img src="{{profile.profile.profile_picture.url}}" alt="img" width="120px" height="120px "> {% endif %}
             <br>
-            <h6>Bio</h6>
             <br>
-            <p>{{user.profile.Bio}}</p>
+            <h6>Bio</h6>
+            <p style="font-size: large;">{{user.profile.bio}}</p>
+            <br>
+            <h6>Contact Info</h6>
+            <p style="font-size: large;">{{user.profile.contact_info}}</p>
         </div>
         <div class="col-md-8">
             <form action="{% url 'sites:edit-profile' %}" method="POST" enctype="multipart/form-data">

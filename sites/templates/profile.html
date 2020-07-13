@@ -13,13 +13,13 @@
 
             <div class="profile-user-settings ">
 
-                <h1 class="profile-user-name " style="font-size: 25px; ">{{profile.username}}</h1>
+                <h1 class="profile-user-name " style="font-size: 25px; ">{{user.username}}</h1>
             </div>
             <div class="profile-bio ">
 
-                <p style="font-size: 20px; "><span class="profile-real-name "><strong>{{user.username}}</strong></span>
-                    <br> Bio: {{user.profile.Bio}}</p>
-                <!--p class="text-center "> {{user.email}}</p-->
+                <p style="font-size: 14px;"><span class="profile-real-name "><strong>{{user.username}}</strong></span>
+                    <br> <br> Bio: {{user.profile.bio}}</p>
+                <p> {{user.profile.contact_info}}</p>
             </div>
 
         </div>
