@@ -148,18 +148,18 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Cloudinary config - You need to create a free claudinary account.
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'hbotqacft',
-    'API_KEY': '248864525447977',
-    'API_SECRET': 'f-Iiab525h7QXcnd1lqe4ay2Sdg',
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': config('CLOUDINARY_API_KEY'),
+    'API_SECRET': config('CLOUDINARY_API_SECRET'),
     'secure': True
 }
 
 # Email configurations remember to install python-decouple
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'moringawatchlist@gmail.com'
-EMAIL_HOST_PASSWORD = 'XPXXYJYX'
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 
 ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
