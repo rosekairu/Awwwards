@@ -75,10 +75,10 @@ def edit(request):
             edit = form.save(commit=False)
             edit.user = request.user
             edit.save()
-            return redirect('sites:profile')
+            return redirect('sites:edit-profile')
     else:
         form = ProfileForm()
-    return render(request, 'edit-profile.html', {'form':form})
+    return render(request, 'edit-profile.html', locals())
 
 
 #logs out current user from account
@@ -107,7 +107,7 @@ def view_project(request):
 
 def rate(request):
     profile = User.objects.get(username=request.user)
-    return render(request,'project.html',locals())
+    return render(request,'rate.html',locals())
 
 def view_rate(request,project_id):
     user = User.objects.get(username=request.user)

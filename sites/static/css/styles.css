@@ -361,9 +361,3 @@ li.total .piesite:before {
 #img-proj {
     margin-top: 20px;
 }
-
-#reg {
-    background-image: url(../images/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}

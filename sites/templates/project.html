@@ -9,7 +9,7 @@
                 </div>
                 <div class="card-body">
                     <h5><strong>{{project.project_name}}</strong></h5>
-                    <p>{{project.location}}</p>
+                    <p style="font-size: medium;">{{project.details}}</p>
                     <p class="card-text">{{project.project.user.username}}</p>
                     <p class="card-text" style="font-size: 20px;"><small class="text-muted">{{project.pub_date}}</small></p>
                     <a href="{% url 'sites:rate' project.id %}"><button class="btn btn-outline-primary">Vote Now</button></a>
@@ -34,9 +34,9 @@
         </div>
         <div class="col-md-2">
             <h6>
-                <stong> Creativity </stong>
+                <stong> Content </stong>
             </h6>
-            {{item.creativity}}
+            {{item.content}}
         </div>
         <div class="col-md-3">
             <h6>

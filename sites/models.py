@@ -55,17 +55,13 @@ class Profile(models.Model):
 class Project(models.Model):
     screenshot = models.ImageField(upload_to = 'images/')
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True,related_name='project')
     project_name = models.CharField(max_length =10)
     pub_date = models.DateTimeField(auto_now_add=True, null=True)
     details = models.TextField()
     project_url = models.CharField(max_length =50)
     user_project_id = models.IntegerField(default=0)
-    design = models.IntegerField(choices=list(zip(range(0, 11), range(0, 11))), default=0)
-    usability = models.IntegerField(choices=list(zip(range(0, 11), range(0, 11))), default=0)
-    creativity = models.IntegerField(choices=list(zip(range(0, 11), range(0, 11))), default=0)
-    content = models.IntegerField(choices=list(zip(range(0, 11), range(0, 11))), default=0)
-    average = models.IntegerField(choices=list(zip(range(0, 11), range(0, 11))), default=0)
-    vote_submissions = models.IntegerField(default=0)
+    
 
 
     class Meta:
@@ -107,8 +103,7 @@ class Rate(models.Model):
     project = models.ForeignKey(Project,on_delete=models.CASCADE,related_name='rate',null=True)
     design = models.CharField(max_length=30)
     usability = models.CharField(max_length=8, default=0)
-    content = models.CharField(max_length=8,blank=True,null=True)
-    creativity = models.CharField(max_length=8,blank=True,null=True)
+    content = models.CharField(max_length=8)
     average = models.FloatField(max_length=8)
     
 

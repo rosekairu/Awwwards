@@ -19,4 +19,4 @@ class RateForm(forms.ModelForm):
     class Meta:
         model =Rate
         exclude= ['user','project']
-        fields = ['design', 'usability', 'creativity', 'content']
+        fields = ['design', 'usability', 'content']
